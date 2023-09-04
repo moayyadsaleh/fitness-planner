@@ -5,6 +5,8 @@ import Login from "./Login";
 import WorkoutPlanner from "./WorkoutPlanner";
 import Navigation from "./Navigation";
 import Home from "./Home";
+import GoalsAndChallenges from "./GoalsAndChallenges";
+
 import "../styles.css";
 
 function App() {
@@ -16,7 +18,8 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/workout" element={<WorkoutPlanner />} />
         <Route path="/login" element={<Login />} />
-        {/* Add more routes if needed */}
+        <Route path="/goals" element={<GoalsAndChallenges />} />{" "}
+        {/* Add this route */}
       </Routes>
     </Router>
   );

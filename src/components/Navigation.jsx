@@ -15,6 +15,9 @@ function Navigation() {
         <li>
           <Link to="/workout">Workout Planner</Link>
         </li>
+        <li>
+          <Link to="/goals">Set and View Goals</Link>
+        </li>
       </ul>
     </nav>
   );

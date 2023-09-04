@@ -9,9 +9,27 @@ function Signup() {
     password: "",
   });
 
+  const [passwordStrength, setPasswordStrength] = useState("");
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+
+    // Check password strength
+    checkPasswordStrength(value);
+  };
+
+  const checkPasswordStrength = (password) => {
+    // Define your password strength criteria
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+    if (passwordRegex.test(password)) {
+      setPasswordStrength("Strong");
+    } else if (password.length >= 8) {
+      setPasswordStrength("Moderate");
+    } else {
+      setPasswordStrength("Weak");
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -34,6 +52,7 @@ function Signup() {
             name="name"
             value={formData.name}
             onChange={handleChange}
+            placeholder="Your name"
             required
           />
         </div>
@@ -48,6 +67,7 @@ function Signup() {
             name="email"
             value={formData.email}
             onChange={handleChange}
+            placeholder="Your email address"
             required
           />
         </div>
@@ -60,10 +80,12 @@ function Signup() {
             type="password"
             id="password"
             name="password"
+            placeholder="Enter a strong password"
             value={formData.password}
             onChange={handleChange}
             required
           />
+          <span className="password-strength">{passwordStrength}</span>
         </div>
         <div>
           <button className="form-submit-button" type="submit">
@@ -73,7 +95,7 @@ function Signup() {
         <div>
           {/* Add Sign In Link */}
           <p>
-            Already have an account? <a href="/signin">Sign In</a>
+            Already have an account? <a href="/login">Log In</a>
           </p>
           {/* Add Sign Up with Facebook and Google buttons */}
           <button className="facebook-button">Sign Up with Facebook</button>

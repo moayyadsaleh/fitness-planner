@@ -35,7 +35,7 @@ function Home() {
     marginTop: "20px",
     padding: "10px 20px",
     fontSize: "20px",
-    backgroundColor: "#007BFF",
+    backgroundColor: "maroon",
     color: "#fff",
     border: "none",
     borderRadius: "5px",
