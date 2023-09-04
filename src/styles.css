@@ -11,7 +11,7 @@ body {
 
 .container {
   max-width: 600px;
-  margin: 0 auto;
+  margin: 20px auto; /* Add margin to push the form down */
   padding: 20px;
   background-color: #fff;
   border-radius: 5px;
@@ -34,6 +34,7 @@ label {
 
 input[type="text"],
 input[type="date"],
+input[type="password"],
 textarea {
   width: 100%;
   padding: 8px;
@@ -54,4 +55,114 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   background-color: #0056b3;
+}
+
+/* Navigation.css (Create a separate CSS file for your navigation styles) */
+
+nav {
+  background-color: #333; /* Background color for the navigation bar */
+  color: #fff; /* Text color */
+  padding: 10px; /* Add some padding for spacing */
+}
+
+ul {
+  list-style: none; /* Remove bullets from the list */
+  padding: 0; /* Remove default padding */
+  display: flex; /* Display list items in a row */
+  justify-content: space-around; /* Distribute items evenly in the space */
+}
+
+li {
+  margin: 0; /* Remove default margin for list items */
+}
+
+/* Style links */
+li a {
+  text-decoration: none; /* Remove underlines from links */
+  color: #fff; /* Text color for links */
+  font-weight: bold; /* Make links bold */
+  transition: color 0.3s; /* Add a smooth color transition on hover */
+
+  /* Add some spacing around links */
+  padding: 5px 10px;
+}
+
+/* Style links on hover */
+li a:hover {
+  color: #ff9900; /* Change the text color on hover */
+}
+
+/* Styling for the signup form inputs */
+
+/* Style the form container */
+.form-container {
+  max-width: 400px; /* Adjust the maximum width as needed */
+  margin: 0 auto; /* Center the form horizontally on the page */
+  padding: 20px; /* Add some padding for spacing */
+  background-color: #f5f5f5; /* Background color for the form container */
+  border: 1px solid #ddd; /* Add a border for the form container */
+  border-radius: 5px; /* Round the corners of the form container */
+}
+
+/* Style the form input labels */
+.form-label {
+  font-weight: bold; /* Make the labels bold */
+}
+
+/* Style the form input fields */
+.form-input {
+  width: 100%; /* Set the width to fill the container */
+  padding: 10px; /* Add padding for spacing inside the inputs */
+  margin-bottom: 10px; /* Add spacing between inputs */
+  border: 1px solid #ddd; /* Add a border to the inputs */
+  border-radius: 5px; /* Round the corners of the inputs */
+}
+
+/* Style the form submit button */
+.form-submit-button {
+  background-color: #007bff; /* Background color for the button */
+  color: #fff; /* Text color for the button */
+  padding: 10px 20px; /* Add padding for spacing */
+  border: none; /* Remove the button border */
+  border-radius: 5px; /* Round the corners of the button */
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+/* Style the form submit button on hover */
+.form-submit-button:hover {
+  background-color: #0056b3; /* Change the background color on hover */
+}
+
+/* Styling for Sign Up with Facebook button */
+.facebook-button {
+  background-color: #1877f2; /* Facebook brand color */
+  color: #fff; /* Text color */
+  padding: 10px 20px; /* Add padding for spacing */
+  border: none; /* Remove the button border */
+  border-radius: 5px; /* Round the corners of the button */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  font-weight: bold; /* Make the text bold */
+  margin-top: 10px; /* Add spacing between buttons */
+}
+
+/* Style the button on hover */
+.facebook-button:hover {
+  background-color: #1152b3; /* Change the background color on hover */
+}
+
+/* Styling for Sign Up with Google button */
+.google-button {
+  background-color: #4285f4; /* Google brand color */
+  color: #fff; /* Text color */
+  padding: 10px 30px; /* Add padding for spacing */
+  border: none; /* Remove the button border */
+  border-radius: 5px; /* Round the corners of the button */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  font-weight: bold; /* Make the text bold */
+  margin-left: 20px;
+}
+
+/* Style the button on hover */
+.google-button:hover {
+  background-color: #357ae8; /* Change the background color on hover */
 }

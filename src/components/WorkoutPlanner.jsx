@@ -60,6 +60,7 @@ function WorkoutPlanner() {
           value={state.date}
           onChange={handleChange}
           required
+          style={{ width: "40%" }}
         />
         <br />
 
@@ -71,6 +72,7 @@ function WorkoutPlanner() {
           value={state.training}
           onChange={handleChange}
           required
+          style={{ width: "40%" }}
         />
         <br />
 
