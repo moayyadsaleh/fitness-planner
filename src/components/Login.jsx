@@ -1,13 +1,16 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { Link } from "react-router-dom";
 import axios from "axios";
 import "../styles.css";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 function Login() {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+
+  const navigate = useNavigate(); // Use the useNavigate hook
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -16,7 +19,22 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission for login
+
+    try {
+      const response = await axios.post("/api/login", formData);
+      if (response.status === 200) {
+        // Successful login, handle it accordingly (e.g., store the token in localStorage)
+        console.log("Login successful");
+
+        // Redirect to the WorkoutPlanner component upon successful login
+        navigate("/workout");
+      } else {
+        // Failed login, handle it accordingly (e.g., show an error message)
+        console.error("Login failed");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (
@@ -59,12 +77,10 @@ function Login() {
           </button>
         </div>
         <div>
-          {/* Add Forgot Password Link */}
           <p>
             Forgot your password?{" "}
             <Link to="/forgot-password">Reset Password</Link>
           </p>
-          {/* Add Sign Up with Facebook and Google buttons */}
           <button className="facebook-button">Log In with Facebook</button>
           <button className="google-button">Log In with Google</button>
         </div>

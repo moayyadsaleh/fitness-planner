@@ -43,11 +43,26 @@ function WorkoutPlanner() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setShowWorkoutDetails(true); // Display workout details after submitting
-    //send the form data to your server or perform any other actions.
-    console.log(state);
-  };
+    setShowWorkoutDetails(true);
 
+    fetch("/api/workouts", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(state),
+    })
+      .then((response) => {
+        if (response.status === 201) {
+          console.log("Workout data saved successfully");
+        } else {
+          console.error("Error saving workout data");
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
   const { sets } = state;
 
   return (

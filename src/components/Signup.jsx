@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "../styles.css";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 function Signup() {
   const [formData, setFormData] = useState({
@@ -10,6 +11,8 @@ function Signup() {
   });
 
   const [passwordStrength, setPasswordStrength] = useState("");
+
+  const navigate = useNavigate(); // Use useNavigate for navigation
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,11 +24,12 @@ function Signup() {
 
   const checkPasswordStrength = (password) => {
     // Define your password strength criteria
-    const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const passwordRegex =
+      /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}$/;
 
     if (passwordRegex.test(password)) {
       setPasswordStrength("Strong");
-    } else if (password.length >= 8) {
+    } else if (password.length >= 12) {
       setPasswordStrength("Moderate");
     } else {
       setPasswordStrength("Weak");
@@ -34,7 +38,15 @@ function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission
+
+    try {
+      // Handle form submission and signup logic here
+
+      // Assuming signup was successful, redirect the user to WorkoutPlanner
+      navigate("/workout"); // Use navigate to redirect
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (

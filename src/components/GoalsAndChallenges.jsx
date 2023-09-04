@@ -19,9 +19,33 @@ function GoalsAndChallenges() {
     setNewGoal({ ...newGoal, [name]: value });
   };
 
+  // Function to send a POST request to save a new goal
+  const saveGoal = async (goalData) => {
+    try {
+      const response = await fetch("/api/goals", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(goalData),
+      });
+
+      if (response.status === 201) {
+        console.log("Goal data saved successfully");
+        // Optionally, you can fetch the updated list of goals from the server
+        // and update your local state with the new data.
+      } else {
+        console.error("Error saving goal data");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
   // Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
+    saveGoal(newGoal); // Send a POST request to save the new goal data
     setGoals([...goals, newGoal]);
     setNewGoal({
       type: "",
@@ -59,6 +83,7 @@ function GoalsAndChallenges() {
           value={newGoal.target}
           onChange={handleChange}
           required
+          min="0"
           className="goals-and-challenges-input"
         />
         <br />
@@ -89,6 +114,7 @@ function GoalsAndChallenges() {
           className="goals-and-challenges-input"
           rows="4"
           cols="50"
+          placeholder="Add your comments"
         />
         <br />
 
