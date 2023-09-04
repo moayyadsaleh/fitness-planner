@@ -270,3 +270,44 @@ li a:hover {
   font-size: 16px;
   color: #333;
 }
+
+/* Style for the container div */
+.workout-details-container {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Style for headings */
+.workout-details-container h1,
+.workout-details-container h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Style for paragraphs */
+.workout-details-container p {
+  margin: 5px 0;
+}
+
+/* Style for the list */
+.workout-details-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Style for list items */
+.workout-details-container li {
+  margin: 5px 0;
+}
+
+/* Style for specific elements */
+.workout-details-container .exercise-details {
+  font-weight: bold;
+}
+
+.workout-details-container .cardio-details {
+  font-style: italic;
+}

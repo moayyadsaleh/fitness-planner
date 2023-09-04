@@ -2,18 +2,24 @@ import React, { useState } from "react";
 import "../styles.css"; // Import the CSS file
 
 function GoalsAndChallenges() {
+  // State to manage fitness goals
   const [goals, setGoals] = useState([]);
+
+  // State to manage the input fields for adding new goals
   const [newGoal, setNewGoal] = useState({
     type: "",
     target: 0,
     targetDate: "",
+    comment: "", // Add a comment field to the newGoal state
   });
 
+  // Function to handle input field changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setNewGoal({ ...newGoal, [name]: value });
   };
 
+  // Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     setGoals([...goals, newGoal]);
@@ -21,6 +27,7 @@ function GoalsAndChallenges() {
       type: "",
       target: 0,
       targetDate: "",
+      comment: "", // Reset the comment field after submission
     });
   };
 
@@ -70,6 +77,21 @@ function GoalsAndChallenges() {
         />
         <br />
 
+        {/* Comment field within the form */}
+        <label className="goals-and-challenges-label" htmlFor="comment">
+          Comment (Optional):
+        </label>
+        <textarea
+          id="comment"
+          name="comment"
+          value={newGoal.comment}
+          onChange={handleChange}
+          className="goals-and-challenges-input"
+          rows="4"
+          cols="50"
+        />
+        <br />
+
         <button type="submit" className="goals-and-challenges-button">
           Set Goal
         </button>
@@ -89,6 +111,12 @@ function GoalsAndChallenges() {
               <strong>Target Value:</strong> {goal.target}
               <br />
               <strong>Target Date:</strong> {goal.targetDate}
+              <br />
+              {goal.comment && (
+                <div>
+                  <strong>Comment:</strong> {goal.comment}
+                </div>
+              )}
             </li>
           ))}
         </ul>

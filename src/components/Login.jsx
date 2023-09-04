@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import axios from "axios";
 import "../styles.css";
 
@@ -60,7 +61,8 @@ function Login() {
         <div>
           {/* Add Forgot Password Link */}
           <p>
-            Forgot your password? <a href="/forgot-password">Reset Password</a>
+            Forgot your password?{" "}
+            <Link to="/forgot-password">Reset Password</Link>
           </p>
           {/* Add Sign Up with Facebook and Google buttons */}
           <button className="facebook-button">Log In with Facebook</button>
