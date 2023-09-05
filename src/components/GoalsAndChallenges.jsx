@@ -43,9 +43,9 @@ function GoalsAndChallenges() {
   };
 
   // Function to handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    saveGoal(newGoal); // Send a POST request to save the new goal data
+    await saveGoal(newGoal); // Wait for the POST request to complete
     setGoals([...goals, newGoal]);
     setNewGoal({
       type: "",

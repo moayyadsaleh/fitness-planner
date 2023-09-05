@@ -1,13 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { useState } from "react";
-import Signup from "./Signup";
+
+import Signup from "./Signup.jsx"; // Use the correct filename with capital "S"
 import Login from "./Login";
 import WorkoutPlanner from "./WorkoutPlanner";
 import Navigation from "./Navigation";
 import Home from "./Home";
 import ResetPassword from "./ResetPassword";
 import GoalsAndChallenges from "./GoalsAndChallenges";
+import Footer from "./Footer";
 
 import "../styles.css";
 
@@ -29,6 +31,8 @@ function App() {
         <Route path="/forgot-password" element={<ResetPassword />} />
         {/* Add this route */}
       </Routes>
+      {/* Place the Footer component outside of Routes */}
+      <Footer />
     </Router>
   );
 }

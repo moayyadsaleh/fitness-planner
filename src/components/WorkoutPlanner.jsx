@@ -215,7 +215,9 @@ function WorkoutPlanner() {
             <br />
           </div>
 
-          <button type="submit">Save and Submit Workout Details</button>
+          <button type="submit" style={{ marginBottom: "50px" }}>
+            Save and Submit Workout Details
+          </button>
         </form>
       )}
     </div>

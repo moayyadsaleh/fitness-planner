@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../styles.css";
 
 function Home() {
   // Define inline styles as JavaScript objects
@@ -33,7 +34,8 @@ function Home() {
   };
   const buttonStyle = {
     marginTop: "20px",
-    padding: "10px 20px",
+    marginBottom: "20px", // Adjust the value as needed
+    padding: "10px 50px",
     fontSize: "20px",
     backgroundColor: "maroon",
     color: "#fff",
@@ -42,7 +44,6 @@ function Home() {
     cursor: "pointer",
     textDecoration: "none",
   };
-
   return (
     <div style={containerStyle}>
       <h1 style={headingStyle}>Welcome to Your Fitness Planner</h1>
@@ -77,7 +78,7 @@ function Home() {
         "Believe in yourself and all that you are. Know that there is something
         inside you that is greater than any obstacle." — Christian D. Larson
       </p>
-      <Link to="/signup" style={buttonStyle}>
+      <Link to="/signup" className="my-button" style={{ ...buttonStyle }}>
         Sign Up Now
       </Link>
     </div>

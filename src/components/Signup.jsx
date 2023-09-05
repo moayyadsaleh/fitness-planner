@@ -1,5 +1,5 @@
-import React, { useState } from "react";
 import axios from "axios";
+import React, { useState } from "react";
 import "../styles.css";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 
@@ -40,10 +40,14 @@ function Signup() {
     e.preventDefault();
 
     try {
-      // Handle form submission and signup logic here
+      const response = await axios.post("/signup", formData);
 
-      // Assuming signup was successful, redirect the user to WorkoutPlanner
-      navigate("/workout"); // Use navigate to redirect
+      if (response.status === 201) {
+        // Signup successful, redirect to the desired page
+        navigate("/workout");
+      } else {
+        console.error("Error:", response.data.message);
+      }
     } catch (error) {
       console.error("Error:", error);
     }
