@@ -22,7 +22,7 @@ function GoalsAndChallenges() {
   // Function to send a POST request to save a new goal
   const saveGoal = async (goalData) => {
     try {
-      const response = await fetch("/api/goals", {
+      const response = await fetch("/goals", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

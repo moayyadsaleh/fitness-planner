@@ -45,7 +45,7 @@ function WorkoutPlanner() {
     e.preventDefault();
     setShowWorkoutDetails(true);
 
-    fetch("/api/workouts", {
+    fetch("/workouts", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
