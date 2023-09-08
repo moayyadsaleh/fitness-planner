@@ -1,7 +1,13 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { useState } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Switch,
+} from "react-router-dom";
 
+import { useState } from "react";
+import WorkoutList from "./WorkoutList.jsx";
 import Signup from "./Signup.jsx"; // Use the correct filename with capital "S"
 import Login from "./Login";
 import WorkoutPlanner from "./WorkoutPlanner";
@@ -29,6 +35,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/goals" element={<GoalsAndChallenges />} />{" "}
         <Route path="/forgot-password" element={<ResetPassword />} />
+        <Route path="/workout-history" element={<WorkoutList />} />{" "}
+        {/* Add this route */}
         {/* Add this route */}
       </Routes>
       {/* Place the Footer component outside of Routes */}
